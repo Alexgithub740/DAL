@@ -1,5 +1,5 @@
 
-// Page Enregistrement : CRUD + confirmation/refus
+
 (function(){
   const tbody = document.getElementById('tbl-body');
   const addBtn = document.getElementById('add-manual');

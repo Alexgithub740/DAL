@@ -1,5 +1,5 @@
 
-// Formulaire Postuler : validation + LocalStorage + impression
+
 (function(){
   const form = document.getElementById('postuler-form');
   const printBtn = document.getElementById('print-btn');
@@ -13,16 +13,16 @@
   }
 
   function validatePhone(v){
-    // Format +509XXXXXXXX (8 chiffres)
+    
     return /^\+509\d{8}$/.test(v);
   }
 
   form?.addEventListener('submit', (e)=>{
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
-    // Auto nationalité
+    
     data.nationalite = 'Haïtien';
-    // Compétences multiple
+    
     const comp = Array.from(form.querySelectorAll('input[name="competences"]:checked')).map(i=>i.value);
     data.competences = comp;
 
@@ -31,7 +31,7 @@
       msg.style.color = 'var(--danger)';
       return;
     }
-    // Sauvegarde image en DataURL si fournie
+    
     const file = form.photo.files?.[0];
     const done = (photoData)=>{
       const list = getList();
@@ -57,7 +57,7 @@
 
   printBtn?.addEventListener('click', ()=> window.print());
 })();
-/* Image*/
+
 const images = document.querySelectorAll('#accueil img');
 let current = 0;
 setInterval(()=>{

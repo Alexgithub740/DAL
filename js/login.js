@@ -3,16 +3,16 @@
   const registerForm = document.querySelector('.register1 form');
 
   const MAX_ATTEMPTS = 3;
-  const LOCK_TIME_MS = 60 * 1000; // 1 minute
+  const LOCK_TIME_MS = 60 * 1000; 
 
-  // Admin credentials
+  
   const adminAccounts = [
     { nom: "DEUS", prenom: "Dayan Alex Stéphen", password: "2003" },
     { nom: "ARISTE", prenom: "Sardoune", password: "2003" },
     { nom: "LAURENT", prenom: "Jess-Kenzy", password: "2003" }
   ];
 
-  // Load existing users from localStorage
+  
   function loadUsers(){
     return JSON.parse(localStorage.getItem('users') || '[]');
   }
@@ -23,7 +23,7 @@
     localStorage.setItem('users', JSON.stringify(users));
   }
 
-  // Check lock
+  
   function isLocked(){
     const lockUntil = localStorage.getItem('lockUntil');
     if(lockUntil && Date.now() < parseInt(lockUntil)){
@@ -49,7 +49,7 @@
     }
   }
 
-  // Handle login
+  
   loginForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(isLocked()){
@@ -61,7 +61,7 @@
     const prenom = loginForm.querySelector('input[placeholder="prenom"]').value.trim();
     const password = loginForm.querySelector('input[placeholder="Mot de passe"]').value.trim();
 
-    // Check if admin
+    
     const isAdmin = adminAccounts.some(a => 
       a.nom.toLowerCase() === nom.toLowerCase() && 
       a.prenom.toLowerCase() === prenom.toLowerCase() && 
@@ -75,7 +75,7 @@
       return;
     }
 
-    // Check if user exists in localStorage
+    
     const users = loadUsers();
     const found = users.find(u => 
       u.nom.toLowerCase() === nom.toLowerCase() &&
@@ -88,7 +88,7 @@
       
       window.location.href = "principal.html";
     } else {
-      // Check if user ever registered
+      
       const isRegistered = users.some(u =>
         u.nom.toLowerCase() === nom.toLowerCase() &&
         u.prenom.toLowerCase() === prenom.toLowerCase()
@@ -103,14 +103,14 @@
     }
   });
 
-  // Handle registration
+  
   registerForm.addEventListener('submit', function(e){
     e.preventDefault();
     const nom = registerForm.querySelector('input[placeholder="Nom"]').value.trim();
     const prenom = registerForm.querySelector('input[placeholder="prenom"]').value.trim();
     const password = registerForm.querySelector('input[placeholder="Mot de passe"]').value.trim();
 
-    // Check if already registered
+    
     const users = loadUsers();
     if(users.some(u => u.nom.toLowerCase() === nom.toLowerCase() && u.prenom.toLowerCase() === prenom.toLowerCase())){
       alert("Cet utilisateur est déjà inscrit.");

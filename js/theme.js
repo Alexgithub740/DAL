@@ -1,5 +1,5 @@
 
-// Gestion thème clair / sombre
+
 (function(){
   const root = document.documentElement;
   const key = 'dal_theme';
