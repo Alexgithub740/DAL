@@ -1,0 +1,3 @@
+ /* Animations supplémentaires */
+.btn-primary:active{transform:translateY(0)}
+.card:hover{box-shadow:0 10px 28px #00000014}

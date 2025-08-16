@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAL Football Académie — Postuler</title>
+  <link rel="icon" type="image/x-icon" href="soccerman.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav container">
+    <div class="brand">
+      <div class="logo">DAL</div>
+      <div>
+        <div class="abbr">DAL Football Académie</div>
+        <div class="name">Formulaire de candidature</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="principal.html">Accueil</a>
+      <a href="index.html">Déconnexion</a>
+      <button class="theme-toggle" type="button">☀︎ / ☾</button>
+    </nav>
+    <button class="hamburger" type="button">MENU<span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu container">
+    <a href="principal.html">Accueil</a>
+    <a href="index.html">Déconnexion</a>
+    <button class="theme-toggle1" type="button">Changer de thème</button>
+  </div>
+</header>
+<main class="container">
+  <section class="card fade-in">
+    <h2>Votre candidature</h2>
+    <p>Remplissez le formulaire ci‑dessous. La nationalité est automatique : <strong>Haïtien</strong>.</p>
+    <form id="postuler-form" enctype="multipart/form-data">
+      <div class="form-row">
+        <div>
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" required>
+        </div>
+        <div>
+          <label for="prenom">Prénom</label>
+          <input id="prenom" name="prenom" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="telephone">Téléphone</label>
+          <input id="telephone" name="telephone" placeholder="+50912345678" required>
+        </div>
+        <div>
+          <label for="option">Option</label>
+          <select id="option" name="option" required>
+            
+            <option>Parasportive</option>
+            <option>Entraîneur principal</option>
+            <option>Entraîneur adjoint</option>
+            <option>Personnel médical</option>
+            <option>Équipe technique</option>
+          </select>
+        </div>
+      </div>
+      <label>Catégories (choix multiples)</label>
+      
+      <div>
+        <label><input type="checkbox" name="categories" value="U13">U13</label>
+        <label><input type="checkbox" name="categories" value="U15">U15</label>
+        <label><input type="checkbox" name="categories" value="U17">U17</label>
+        <label><input type="checkbox" name="categories" value="U20">U20</label>
+        <label><input type="checkbox" name="categories" value="Senior">Senior</label>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="photo">Photo (optionnel)</label>
+          <input id="photo" name="photo" type="file" accept="image/*">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Présentez-vous en quelques lignes…"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+        <button class="btn" type="button" id="print-btn">Imprimer</button>
+        <span id="postuler-msg" role="status"></span>
+      </div>
+    </form>
+  </section>
+</main>
+<footer class="site">
+  <div class="container">
+    <small class="muted">© 2025 DAL Football Académie — Tous droits réservés.<br>
+Passion • Discipline • Excellence</small>
+  </div>
+</footer>
+<script>
+(function(){
+  const params = new URLSearchParams(location.search);
+  const opt = params.get('option');
+  if(opt){ document.getElementById('option').value = opt; }
+})();
+</script>
+<script src="js/postuler.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/theme.js"></script>
+</body>
+</html>
